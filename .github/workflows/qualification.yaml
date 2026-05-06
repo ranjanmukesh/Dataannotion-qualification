@@ -43,6 +43,4 @@ jobs:
           npm install -g @google/gemini-cli
           export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
           export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini
-      - name: instructions
-        run: |
           mkdir ~/gemini-test && cd ~/gemini-test && gemini -p "What is in this folder?"
