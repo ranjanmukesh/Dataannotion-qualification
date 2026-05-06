@@ -46,14 +46,14 @@ jobs:
           npm install -g @google/gemini-cli
           export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
           export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini
-					git clone https://github.com/rochacbruno/flask-project-template.git my-qual-project
+		  git clone https://github.com/rochacbruno/flask-project-template.git my-qual-project
           cd ..
           cp -r my-qual-project my-qual-project-start
           cd my-qual-project-start
-					cd ..
+		  cd ..
           tar -cf my-qual-project-start.tar my-qual-project-start
-					tmux new-session -d -s qual "cd ~/my-qual-project-start && gemini"
-					sleep 8
-					tmux send-keys -t qual "Improve authentication and error handling in this app. Make it more secure and add validation following the same pattern as other parts."
-					tmux capture-pane -S -10000 -p -t qual > gemini-conversation.log
-					head -n 30 gemini-conversation.log
+		  tmux new-session -d -s qual "cd ~/my-qual-project-start && gemini"
+		  sleep 8
+		  tmux send-keys -t qual "Improve authentication and error handling in this app. Make it more secure and add validation following the same pattern as other parts."
+		  tmux capture-pane -S -10000 -p -t qual > gemini-conversation.log
+		  head -n 30 gemini-conversation.log
