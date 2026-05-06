@@ -41,4 +41,4 @@ jobs:
       - name: instructions
         run: |
           export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
-          codex exec --ask-for-approval never "What is in this folder?"
+          codex exec -a never "What is in this folder?"
