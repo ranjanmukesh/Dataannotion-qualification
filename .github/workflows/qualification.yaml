@@ -58,6 +58,7 @@ jobs:
           cat ~/.tmux.conf
           echo "Setup completed successfully!"
 
-      - name: Final Instructions
-				run: |
-					echo "hi"
+			- name: Final Instructions
+			  run: |
+				  echo "hi"
+					echo "hello"
