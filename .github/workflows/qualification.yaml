@@ -59,6 +59,5 @@ jobs:
           echo "Setup completed successfully!"
 
       - name: Final Instructions
-        run: |
-					export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
-          tmux
+				run: |
+					echo "hi"
