@@ -13,35 +13,35 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name: install timux
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y timux
-
-      - name: configure timux
-        run: |
-          cat > ~/.tmux.conf << EOF
-          set-option -g history-limit 100000
-          set -g mouse on
-          EOF
-
-      - name: install node js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: install codex cli
-        run: |
-          npm install -g @openai/codex
-
-      - name: create codex config
-      run: |
-        mkdir -p ~/.codex
-        cat > ~/.codex/config.toml << EOF
-        openai_base_url = "https://app.dataannotation.tech/api/llm_proxy/openai/v1"
-        EOF
-
-      - name: instructions
-        run: |
-          export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
-          mkdir ~/codex-test && cd ~/codex-test && codex 'What is in this folder?'
+#      - name: install timux
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y timux
+#
+#      - name: configure timux
+#        run: |
+#          cat > ~/.tmux.conf << EOF
+#          set-option -g history-limit 100000
+#          set -g mouse on
+#          EOF
+#
+#      - name: install node js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: '20'
+#
+#      - name: install codex cli
+#        run: |
+#          npm install -g @openai/codex
+#
+#      - name: create codex config
+#      run: |
+#        mkdir -p ~/.codex
+#        cat > ~/.codex/config.toml << EOF
+#        openai_base_url = "https://app.dataannotation.tech/api/llm_proxy/openai/v1"
+#        EOF
+#
+#      - name: instructions
+#        run: |
+#          export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
+#          mkdir ~/codex-test && cd ~/codex-test && codex 'What is in this folder?'
