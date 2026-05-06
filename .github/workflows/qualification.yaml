@@ -35,11 +35,11 @@ jobs:
           npm install -g @openai/codex
 
       - name: create codex config
-      run: |
-        mkdir -p ~/.codex
-        echo "done"
-#        echo 'openai_base_url = "https://app.dataannotation.tech/api/llm_proxy/openai/v1"' > ~/.codex/config.toml
-#      - name: instructions
-#        run: |
-#          export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
+        run: |
+          mkdir -p ~/.codex
+          echo 'openai_base_url = "https://app.dataannotation.tech/api/llm_proxy/openai/v1"' > ~/.codex/config.toml
+      - name: instructions
+        run: |
+          export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
+          mkdir ~/codex-test && cd ~/codex-test && codex 'What is in this folder?'
 #          mkdir ~/codex-test && cd ~/codex-test && codex 'What is in this folder?'
