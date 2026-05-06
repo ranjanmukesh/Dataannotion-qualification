@@ -49,7 +49,7 @@ jobs:
 
       - name: Verification
         run: |
-          echo "=== Verification ==="
+         	echo "=== Verification ==="
           echo "tmux version:"
           tmux -V
           echo "Codex version:"
@@ -57,8 +57,7 @@ jobs:
           echo "tmux config:"
           cat ~/.tmux.conf
           echo "Setup completed successfully!"
-
-			- name: Final Instructions
-			  run: |
+			- name: Instructions
+        run: |
 				  echo "hi"
 					echo "hello"
