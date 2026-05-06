@@ -60,11 +60,6 @@ jobs:
 
       - name: Final Instructions
         run: |
-          echo ""
-          echo "=================================================================="
-          echo "✅ Setup Complete for DataAnnotation Qualification!"
-          echo "Use this in your local machine:"
-          echo "1. export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW"
-          echo "2. tmux"
-          echo "3. codex"
-          echo "=================================================================="
+          export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
+          tmux
+					mkdir ~/codex-test && cd ~/codex-test && codex 'What is in this folder?'
