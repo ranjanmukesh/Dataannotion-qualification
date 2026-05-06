@@ -1,7 +1,7 @@
 name: Setup tmux + Codex (DataAnnotation Qualification)
 
 on:
-  workflow_dispatch:  # Run manually
+  workflow_dispatch:
   push:
     branches: [ main, master ]
 
@@ -27,7 +27,7 @@ jobs:
           echo "✅ tmux config created:"
           cat ~/.tmux.conf
 
-      - name: Install Node.js (for Codex)
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -38,7 +38,7 @@ jobs:
           echo "✅ Codex version:"
           codex --version
 
-      - name: Create Codex config with proxy (for DataAnnotation)
+      - name: Create Codex config with proxy
         run: |
           mkdir -p ~/.codex
           cat > ~/.codex/config.toml << EOF
@@ -49,7 +49,7 @@ jobs:
 
       - name: Verification
         run: |
-         	echo "=== Verification ==="
+          echo "=== Verification ==="
           echo "tmux version:"
           tmux -V
           echo "Codex version:"
@@ -57,7 +57,14 @@ jobs:
           echo "tmux config:"
           cat ~/.tmux.conf
           echo "Setup completed successfully!"
-			- name: Instructions
+
+      - name: Final Instructions
         run: |
-				  echo "hi"
-					echo "hello"
+          echo ""
+          echo "=================================================================="
+          echo "✅ Setup Complete for DataAnnotation Qualification!"
+          echo "Use this in your local machine:"
+          echo "1. export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW"
+          echo "2. tmux"
+          echo "3. codex"
+          echo "=================================================================="
