@@ -41,5 +41,4 @@ jobs:
       - name: instructions
         run: |
           export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
-          mkdir ~/codex-test && cd ~/codex-test && codex 'What is in this folder?'
-#          mkdir ~/codex-test && cd ~/codex-test && codex 'What is in this folder?'
+          codex exec --ask-for-approval never "What is in this folder?"
