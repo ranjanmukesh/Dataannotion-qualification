@@ -37,6 +37,7 @@ jobs:
       - name: create codex config
       run: |
         mkdir -p ~/.codex
+        echo "done"
 #        echo 'openai_base_url = "https://app.dataannotation.tech/api/llm_proxy/openai/v1"' > ~/.codex/config.toml
 #      - name: instructions
 #        run: |
