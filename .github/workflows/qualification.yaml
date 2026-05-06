@@ -46,7 +46,7 @@ jobs:
           npm install -g @google/gemini-cli
           export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
           export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini
-          # git clone https://github.com/rochacbruno/flask-project-template.git my-qual-project
+          git clone https://github.com/rochacbruno/flask-project-template.git my-qual-project
 #          cp -r my-qual-project my-qual-project-start
 #          cd my-qual-project-start
 #					cd ..
