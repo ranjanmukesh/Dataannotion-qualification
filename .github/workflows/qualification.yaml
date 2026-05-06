@@ -51,5 +51,5 @@ jobs:
           cd my-qual-project-start
           cd ..
           tar -cf my-qual-project-start.tar my-qual-project-start
-          gemini "Improve authentication and error handling in this app. Make it more secure and add validation following the same pattern as other parts." --output gemini-changes.md 2>&1 | tee gemini-conversation.log
+          gemini --prompt "Improve authentication and error handling in this app. Make it more secure and add validation following the same pattern as other parts." 2>&1 | tee gemini-conversation.log
           cat gemini-conversation.log
