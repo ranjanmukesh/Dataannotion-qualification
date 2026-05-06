@@ -13,27 +13,27 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
-#      - name: install timux
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y timux
-#
-#      - name: configure timux
-#        run: |
-#          cat > ~/.tmux.conf << EOF
-#          set-option -g history-limit 100000
-#          set -g mouse on
-#          EOF
-#
-#      - name: install node js
-#        uses: actions/setup-node@v4
-#        with:
-#          node-version: '20'
-#
-#      - name: install codex cli
-#        run: |
-#          npm install -g @openai/codex
-#
+      - name: install timux
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y timux
+
+      - name: configure timux
+        run: |
+          cat > ~/.tmux.conf << EOF
+          set-option -g history-limit 100000
+          set -g mouse on
+          EOF
+
+      - name: install node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: install codex cli
+        run: |
+          npm install -g @openai/codex
+
 #      - name: create codex config
 #      run: |
 #        mkdir -p ~/.codex
