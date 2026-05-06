@@ -1,65 +1,14 @@
-name: Setup tmux + Codex (DataAnnotation Qualification)
+name: set up timux and codex
 
 on:
   workflow_dispatch:
-    push:
-      branches: [ main, master ]
+  push:
+
 
 jobs:
   setup:
     runs-on: ubuntu-latest
-
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Install tmux
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y tmux
-
-    - name: Configure tmux (history + mouse)
-      run: |
-        cat > ~/.tmux.conf << EOF
-        set-option -g history-limit 100000
-        set -g mouse on
-        EOF
-        echo "✅ tmux config created:"
-        cat ~/.tmux.conf
-
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-
-    - name: Install Codex CLI
-      run: |
-        npm install -g @openai/codex
-        echo "✅ Codex version:"
-        codex --version
-
-    - name: Create Codex config with proxy
-      run: |
-        mkdir -p ~/.codex
-        cat > ~/.codex/config.toml << EOF
-        openai_base_url = "https://app.dataannotation.tech/api/llm_proxy/openai/v1"
-        EOF
-        echo "✅ Codex proxy config created"
-        cat ~/.codex/config.toml
-
-    - name: Verification
-      run: |
-        echo "=== Verification ==="
-        echo "tmux version:"
-        tmux -V
-        echo "Codex version:"
-        codex --version
-        echo "tmux config:"
-        cat ~/.tmux.conf
-        echo "Setup completed successfully!"
-
-    - name: Final Instructions
-      run: |
-        export OPENAI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
-        tmux
-        mkdir ~/codex-test && cd ~/codex-test && codex 'What is in this folder?'
+      
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
