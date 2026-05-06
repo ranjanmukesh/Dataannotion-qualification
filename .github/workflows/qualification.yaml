@@ -41,6 +41,7 @@ jobs:
       - name: install gemini
         env:
           GEMINI_CLI_TRUST_WORKSPACE: true
+          GEMINI_MODEL: gemini-2.5-flash
         run: |
           npm install -g @google/gemini-cli
           export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
