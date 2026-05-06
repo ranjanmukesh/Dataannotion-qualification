@@ -52,5 +52,5 @@ jobs:
           cd ..
           tar -cf my-qual-project-start.tar my-qual-project-start
           tmux new-session -d -s qual "cd ~/my-qual-project-start && gemini"
-          sleep 45
+          sleep 145
           tmux send-keys -t qual "Improve authentication and error handling in this app. Make it more secure and add validation following the same pattern as other parts."
