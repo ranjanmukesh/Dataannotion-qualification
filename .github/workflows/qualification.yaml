@@ -34,9 +34,9 @@ jobs:
         run: |
           npm install -g @openai/codex
 
-#      - name: create codex config
-#      run: |
-#        mkdir -p ~/.codex
+      - name: create codex config
+      run: |
+        mkdir -p ~/.codex
 #        echo 'openai_base_url = "https://app.dataannotation.tech/api/llm_proxy/openai/v1"' > ~/.codex/config.toml
 #      - name: instructions
 #        run: |
