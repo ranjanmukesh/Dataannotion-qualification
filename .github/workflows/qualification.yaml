@@ -74,3 +74,10 @@ jobs:
 #          echo "=== First 50 lines ==="
 #          head -n 50 gemini-conversation.log
 #
+			- name: Upload Results
+				uses: actions/upload-artifact@v4
+        with:
+					name: qualification-results
+					path: |
+						my-qual-project-start-log.lo
+						my-qual-project-start.tar  
