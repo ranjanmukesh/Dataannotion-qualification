@@ -55,7 +55,7 @@ jobs:
           echo "======================="
           cat gemini-conversation.log
           echo "======================="
-          tmux new-session  -s mysession "echo 'Tmux session started!'; bash"
+          tmux new-session  -d -s mysession "echo 'Tmux session started!'; bash"
           echo "=== Active tmux sessions ==="
           tmux ls
 #          tmux new-session -d -s qual "cd ~/my-qual-project-start && exec gemini"
