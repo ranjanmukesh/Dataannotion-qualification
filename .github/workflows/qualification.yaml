@@ -51,8 +51,8 @@ jobs:
           cd my-qual-project-start
           cd ..
           tar -cf my-qual-project-start.tar my-qual-project-start
-          gemini --prompt "Go ahead and improve the authentication system and add proper validation + error handling across the app. 
-          Make everything more secure and ensure it follows the existing patterns used in the project. 
-          You can modify the necessary files directly." 2>&1 | tee gemini-conversation.log
+          gemini --prompt "Implement the improvements to the authentication system right now. 
+          Add proper user roles, strengthen password validation, add error handling everywhere, and secure all endpoints. 
+          Follow the existing code patterns in the project and make the changes to the files directly." 2>&1 | tee gemini-conversation.log
           echo "======================="
           cat gemini-conversation.log
