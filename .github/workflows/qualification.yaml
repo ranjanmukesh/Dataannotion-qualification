@@ -56,6 +56,7 @@ jobs:
           cat gemini-conversation.log
           echo "======================="
           python3 run_gemini.py
+          sleep 70
           echo "==================="
           cat my-qual-project-start-log.log
           echo "==================="
