@@ -25,7 +25,7 @@ commands = [
     f"export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW",
     f"export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini",
     f"cd {PROJECT_FOLDER}",
-    "gemini -p 'improve the webapp to make it production ready. Work in Plan Mode only. Describe exactly what you intend to do, list all files you plan to change, show the proposed code changes, but **do not** use any write_file, replace, or edit tools'"
+    "gemini -p 'Improve the webapp to make it production-ready. Add proper error handling, logging, database support as mentioned in the README, and secure it. Also improve the routing and make the responses better.. Work in Plan Mode only. Describe exactly what you intend to do, list all files you plan to change, show the proposed code changes, but **do not** use any write_file, replace, or edit tools'"
 ]
 
 for cmd in commands:
