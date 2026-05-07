@@ -63,4 +63,3 @@ jobs:
           #tmux new-session  -d -s mysession "echo 'Tmux session started!'; bash; gemini -p 'Hi'"
           echo "=== Active tmux sessions ==="
           tmux ls
-			
