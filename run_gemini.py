@@ -25,7 +25,7 @@ commands = [
     f"export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW",
     f"export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini",
     f"cd {PROJECT_FOLDER}",
-    "gemini"
+    "gemini --prompt \" Add data validation \""
 ]
 
 for cmd in commands:
@@ -36,10 +36,6 @@ for cmd in commands:
 print("Waiting for Gemini to start...")
 time.sleep(8)
 
-# === Send Strong Topic 2 Prompt ===
-prompt = "Add data validation"
-
-run_command(f'tmux send-keys -t {SESSION_NAME} "{prompt}" Enter')
 
 print("Prompt sent. Waiting for response...")
 time.sleep(20)   # Adjust if needed (Gemini can be slow)
