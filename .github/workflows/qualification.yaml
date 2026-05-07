@@ -56,8 +56,8 @@ jobs:
           cat gemini-conversation.log
           echo "======================="
           tmux new-session -d -s qual "cd ~/my-qual-project-start && exec gemini"
+          tmux set-option -p remain-on-exit
           sleep 20
-          tmux set-option -t qual remain-on-exit on
           tmux send-keys -t qual "Improve authentication and error handling in this app. Make it more secure and add validation following the same pattern as other parts." 
           sleep 70
           #
