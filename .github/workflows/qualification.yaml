@@ -55,6 +55,7 @@ jobs:
           echo "======================="
           cat gemini-conversation.log
           echo "======================="
+          tmux start-server
           tmux new-session -d -s qual "cd ~/my-qual-project-start && exec gemini"
           tmux set-option -p remain-on-exit
           sleep 20
