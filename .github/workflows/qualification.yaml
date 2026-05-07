@@ -46,21 +46,17 @@ jobs:
           npm install -g @google/gemini-cli
           export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
           export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini
-          git clone https://github.com/ranjanmukesh/Parametric-crop-insurance.git  my-qual-project
+          git clone https://github.com/mmumshad/simple-webapp-flask.git my-qual-project
           cp -r my-qual-project my-qual-project-start
           cd my-qual-project-start
           cd ..
           tar -cf my-qual-project-start.tar my-qual-project-start
-          gemini --prompt "Add data validation" 2>&1 | tee gemini-conversation.log
-          echo "======================="
-          cat gemini-conversation.log
           echo "======================="
           python3 run_gemini.py
           sleep 70
           echo "==================="
           cat my-qual-project-start-log.log
           echo "==================="
-          #tmux new-session  -d -s mysession "echo 'Tmux session started!'; bash; gemini -p 'Hi'"
           echo "=== Active tmux sessions ==="
           tmux ls
 
