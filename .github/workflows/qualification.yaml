@@ -63,3 +63,11 @@ jobs:
           #tmux new-session  -d -s mysession "echo 'Tmux session started!'; bash; gemini -p 'Hi'"
           echo "=== Active tmux sessions ==="
           tmux ls
+
+      - name: uploading artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: qualifucation_results
+          path: |
+            my-qual-project-start-log.log
+            my-qual-project-start.ta
