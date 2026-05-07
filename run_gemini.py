@@ -25,7 +25,7 @@ commands = [
     f"export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW",
     f"export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini",
     f"cd {PROJECT_FOLDER}",
-    "gemini --prompt \" Add data validation \""
+    "gemini --prompt \" Add data validations \""
 ]
 
 for cmd in commands:
