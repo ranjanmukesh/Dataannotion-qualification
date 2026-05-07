@@ -54,3 +54,15 @@ jobs:
           gemini --prompt "Add data validation" 2>&1 | tee gemini-conversation.log
           echo "======================="
           cat gemini-conversation.log
+          echo "======================="
+          tmux new-session -d -s qual \
+                      "cd ~/my-qual-project-start && exec gemini"
+          sleep 20
+          tmux set-option -t qual remain-on-exit on
+          tmux send-keys -t qual "Improve authentication and error handling in this app. Make it more secure and add validation following the same pattern as other parts." 
+          sleep 70
+					tmux capture-pane -S -100000 -p -t qual > gemini-conversation.log
+
+          echo "=== First 50 lines ==="
+          head -n 50 gemini-conversation.log
+
