@@ -56,6 +56,9 @@ jobs:
           cat gemini-conversation.log
           echo "======================="
           python3 run_gemini.py
+          echo "==================="
+          cat my-qual-project-start-log.log
+          echo "==================="
           #tmux new-session  -d -s mysession "echo 'Tmux session started!'; bash"
           echo "=== Active tmux sessions ==="
           tmux ls
