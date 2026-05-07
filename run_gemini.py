@@ -25,7 +25,7 @@ commands = [
     f"export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW",
     f"export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini",
     f"cd {PROJECT_FOLDER}",
-    "gemini -p 'Hi'"
+    "gemini -p 'Add data validation'"
 ]
 
 for cmd in commands:
@@ -38,7 +38,7 @@ time.sleep(8)
 
 
 print("Prompt sent. Waiting for response...")
-time.sleep(20)   # Adjust if needed (Gemini can be slow)
+time.sleep(120)   # Adjust if needed (Gemini can be slow)
 
 # Capture the full conversation
 run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}')

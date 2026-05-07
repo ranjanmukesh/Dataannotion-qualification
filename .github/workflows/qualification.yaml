@@ -60,7 +60,7 @@ jobs:
           echo "==================="
           cat my-qual-project-start-log.log
           echo "==================="
-          #tmux new-session  -d -s mysession "echo 'Tmux session started!'; bash"
+          #tmux new-session  -d -s mysession "echo 'Tmux session started!'; bash; gemini -p 'Hi'"
           echo "=== Active tmux sessions ==="
           tmux ls
 #          tmux new-session -d -s qual "cd ~/my-qual-project-start && exec gemini"
