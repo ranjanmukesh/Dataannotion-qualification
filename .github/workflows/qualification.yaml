@@ -64,10 +64,3 @@ jobs:
           echo "=== Active tmux sessions ==="
           tmux ls
 			
-      - name: Upload Results
-#				uses: actions/upload-artifact@v4
-#        with:
-#					name: qualification-results
-#					path: |
-						my-qual-project-start-log.lo
-						my-qual-project-start.tar  
