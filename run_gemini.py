@@ -37,9 +37,7 @@ print("Waiting for Gemini to start...")
 time.sleep(8)
 
 # === Send Strong Topic 2 Prompt ===
-prompt = '''Explain in detail how a user request flows through the entire application from the moment it arrives until a response is returned. 
-Include authentication, validation, database interactions, and error handling. 
-Also describe the overall architecture and where business logic is located.'''
+prompt = "Add data validation"
 
 run_command(f'tmux send-keys -t {SESSION_NAME} "{prompt}" Enter')
 
