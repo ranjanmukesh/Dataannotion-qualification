@@ -28,7 +28,7 @@ commands = [
     f"export TERM=xterm-256color",
     f"export COLORTERM=truecolor",
     f"cd {PROJECT_FOLDER}",
-    "gemini --approval-mode=auto_edit -p 'Improve the webapp to make it production-ready. Add proper error handling, logging, database support as mentioned in the README, and secure it. Also improve the routing and make the responses better. '"
+    "gemini --approval-mode=auto_edit -p 'Improve the webapp to make it production-ready.  '"
 ]
 
 for cmd in commands:
