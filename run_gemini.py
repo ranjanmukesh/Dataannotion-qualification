@@ -28,7 +28,7 @@ commands = [
     f"export TERM=xterm-256color",
     f"export COLORTERM=truecolor",
     f"cd {PROJECT_FOLDER}",
-    "gemini --approval-mode=auto_edit -p 'Add authentication to the app  '"
+    "gemini --approval-mode=auto_edit -p 'Make the app more secure'"
 ]
 
 for cmd in commands:
