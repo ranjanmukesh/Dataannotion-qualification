@@ -54,6 +54,9 @@ jobs:
           echo "=== Active tmux sessions ==="
           tmux ls
 
+      - name: prepare final artifacts
+        run: |
+          tar -czf my-qual-project-start-final.tar.gz my-qual-project-start
       - name: uploading artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -61,3 +64,6 @@ jobs:
           path: |
             my-qual-project-start-log.log
             my-qual-project-start.ta
+            my-qual-project-start-final.tar.gz
+            my-qual-project-start/
+          retention-days: 30
