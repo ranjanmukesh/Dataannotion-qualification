@@ -13,10 +13,12 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name: install timux
+      - name: install timux and other erquired softwares
         run: |
           sudo apt-get update
           sudo apt-get install -y tmux
+          sudo apt-get install -y ripgrep
+          sudo apt-get install -y ncurses-term
 
       - name: configure timux
         run: |
@@ -30,18 +32,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: install codex cli
-        run: |
-          npm install -g @openai/codex
-
-      - name: create codex config
-        run: |
-          mkdir -p ~/.codex
-          echo 'openai_base_url = "https://app.dataannotation.tech/api/llm_proxy/openai/v1"' > ~/.codex/config.toml
       - name: install gemini
         env:
           GEMINI_CLI_TRUST_WORKSPACE: true
-          GEMINI_MODEL: gemini-2.5-flash
+          GEMINI_MODEL: gemini-3-pro-preview
         run: |
           npm install -g @google/gemini-cli
           export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
