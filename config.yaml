@@ -1,0 +1,11 @@
+repo:
+  url: "https://github.com/mmumshad/simple-webapp-flask.git" 
+  folder: "my-qual-project"
+  start_folder: "my-qual-project-start"
+
+gemini:
+	prompt_file: "prompt.txt"
+	approval_mode: "auto_edit"
+	extra_env:
+		GEMINI_API_KEY: "Q9A4AXWDH3V7K6GWMGWQ7TNW"
+		GOOGLE_GEMINI_BASE_URL: "https://app.dataannotation.tech/api/llm_proxy/gemini"
