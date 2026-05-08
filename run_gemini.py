@@ -28,7 +28,7 @@ commands = [
     f"export TERM=xterm-256color",
     f"export COLORTERM=truecolor",
     f"cd {PROJECT_FOLDER}",
-    "gemini --approval-mode=auto_edit -p 'explain the database connection issue in the app'"
+    "gemini --approval-mode=auto_edit -p 'make the app user friendly'"
 ]
 
 for cmd in commands:
