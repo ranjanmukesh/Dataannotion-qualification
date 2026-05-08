@@ -39,7 +39,7 @@ for cmd in commands:
 time.sleep(8)
 
 
-time.sleep(120)   # Adjust if needed (Gemini can be slow)
+time.sleep(240)   # Adjust if needed (Gemini can be slow)
 
 # Capture the full conversation
 run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}')
