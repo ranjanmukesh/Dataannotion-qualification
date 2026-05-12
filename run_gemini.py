@@ -28,7 +28,7 @@ commands = [
     f"export TERM=xterm-256color",
     f"export COLORTERM=truecolor",
     f"cd {PROJECT_FOLDER}",
-    "gemini --approval-mode=auto_edit -p 'apply the mvc framework discussed earlier'"
+    "gemini --approval-mode=auto_edit -p 'apply the design pattern discussed earlier'"
 ]
 
 for cmd in commands:
