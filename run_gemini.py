@@ -14,7 +14,7 @@ GEMINI_MD = "GEMINI.md"
 
 def run_command(cmd, shell=True, check=True, cwd=None):
     print(f"Running: {cmd}")
-    subprocess.run(cmd, shell=shell, check=check, cwd=cwd, capture_output=True, text=True)
+    result = subprocess.run(cmd, shell=shell, check=check, cwd=cwd, capture_output=True, text=True)
     if result.stdout.strip():
         print(result.stdout)
     if result.stderr.strip():
