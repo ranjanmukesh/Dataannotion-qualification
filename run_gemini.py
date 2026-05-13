@@ -16,7 +16,7 @@ def run_command(cmd, shell=True):
     print(f"Running: {cmd}")
     subprocess.run(cmd, shell=shell, check=False)
 
-def append_to_gemin_md(prompt: str, response: str):
+def append_to_gemini_md(prompt: str, response: str):
     md_path = Path(PROJECT_FOLDER)/GEMINI_MD
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
