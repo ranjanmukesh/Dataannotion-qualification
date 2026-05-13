@@ -94,6 +94,6 @@ try:
 
     append_to_gemini_md(USER_PROMPT, response)
 except Exception as e:
-    print(f"Error reading log file {e})
+    print(f"Error reading log file {e}")
 print ("Process completed .......")
 
