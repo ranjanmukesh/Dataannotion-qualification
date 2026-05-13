@@ -44,6 +44,8 @@ def commit_gemini_md():
         cwd = Path(PROJECT_FOLDER)
         run_command(f"cd {PROJECT_FOLDER} && ls", cwd=cwd, check=False)
         run_command("ls", cwd=cwd, check=False)
+        run_command("git config user.name 'Github actions'", cwd=cwd, check=False)
+        run_command("git config user.email 'actions@github.com'", cwd=cwd, check=False)
         run_command(f"cd {PROJECT_FOLDER} && git add {GEMINI_MD}", cwd=cwd, check=False)
         commit_message = "appending latest conversation"
         run_command(f"cd {PROJECT_FOLDER} && git commit -m '{commit_message}'", cwd=cwd, check=False)
