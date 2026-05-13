@@ -40,7 +40,7 @@ def commit_gemini_md():
         run_command(f"cd {PROJECT_FOLDER} && git add {GEMINI_MD}")
         commit_message = "appending latest conversation"
         result = subprocess.run(f"cd {PROJECT_FOLDER} && git --quiet diff {GEMINI_MD} 2>/dev/null", shell = True) 
-        if result.resultcode() == 1:
+        if result.returncode == 1:
             run_command(f"cd {PROJECT_FOLDER} && git commit -m {commit_message}")
             run_command(f"cd {PROJECT_FOLDER} && git push")
             print("acommitted successfully")
