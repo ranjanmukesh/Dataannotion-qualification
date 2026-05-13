@@ -46,7 +46,7 @@ def commit_gemini_md():
         else:
             print("nothing to commit")
     except Exception as e:
-        print(f"git commit/push failed {e})
+        print(f"git commit/push failed {e}")
 print("=== Starting Gemini Qualification Setup ===")
 
 # Kill any existing session
