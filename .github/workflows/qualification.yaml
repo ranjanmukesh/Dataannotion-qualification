@@ -43,6 +43,8 @@ jobs:
           git clone https://github.com/mmumshad/simple-webapp-flask.git my-qual-project
           cp -r my-qual-project my-qual-project-start
           cd my-qual-project-start
+          git config  user.name "Github Actions")
+          git config user.email "GithubActions@github.com")
           cd ..
           tar -cf my-qual-project-start.tar my-qual-project-start
           echo "======================="

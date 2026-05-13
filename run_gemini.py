@@ -12,9 +12,13 @@ LOG_FILE = f"{PROJECT_FOLDER}-log.log"
 USER_PROMPT = "apply the design pattern discussed earlier"
 GEMINI_MD = "GEMINI.md"
 
-def run_command(cmd, shell=True):
+def run_command(cmd, shell=True, check=True, cwd=True):
     print(f"Running: {cmd}")
-    subprocess.run(cmd, shell=shell, check=False)
+    subprocess.run(cmd, shell=shell, check=check, cwd=cwd, capture_output=True, text=True)
+    if result.stdout.strip():
+        print(result.stdout)
+    if result.stderr.strip():
+        print("STDERR:",result.stderr.strip())
 
 def append_to_gemini_md(prompt: str, response: str):
     md_path = Path(PROJECT_FOLDER)/GEMINI_MD
@@ -37,12 +41,13 @@ def commit_gemini_md():
         return
 
     try:
-        run_command(f"cd {PROJECT_FOLDER} && ls")
-        run_command("ls")
-        run_command(f"cd {PROJECT_FOLDER} && git add {GEMINI_MD}")
+        cwd = Path(PROJECT_FOLDER)
+        run_command(f"cd {PROJECT_FOLDER} && ls", cwd=cwd, check=False)
+        run_command("ls", cwd=cwd, check=False)
+        run_command(f"cd {PROJECT_FOLDER} && git add {GEMINI_MD}", cwd=cwd, check=False)
         commit_message = "appending latest conversation"
-        run_command(f"cd {PROJECT_FOLDER} && git commit -m '{commit_message}'")
-        run_command(f"cd {PROJECT_FOLDER} && git push")
+        run_command(f"cd {PROJECT_FOLDER} && git commit -m '{commit_message}'", cwd=cwd, check=False)
+        run_command(f"cd {PROJECT_FOLDER} && git push", cwd=cwd, check=False)
         print("committed successfully")
     except Exception as e:
         print(f"git commit/push failed {e}")
@@ -76,8 +81,7 @@ time.sleep(8)
 time.sleep(240)   # Adjust if needed (Gemini can be slow)
 
 # Capture the full conversation
-run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}')
-run_command(f'tmux capture-pane -S - -t {SESSION_NAME} && tmux save-buffer {LOG_FILE}')
+run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}', check=False)
 
 try:
     log_content = Path(LOG_FILE).read_text(encoding="utf-8", errors="ignore")
