@@ -25,7 +25,7 @@ def append_to_gemin_md(prompt: str, response: str):
         header = "Gemini CLI Conversation\n"
         header += "You are Gemili CLI a expert coding agent\n"
         md_path.write_text(header, "utf-8")
-        print ("created new gemini md file"
+        print ("created new gemini md file")
     else:
         print("appending to existing gemini md file")
 
