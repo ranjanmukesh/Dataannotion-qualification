@@ -20,12 +20,11 @@ def append_to_gemini_md(prompt: str, response: str):
     md_path = Path(PROJECT_FOLDER)/GEMINI_MD
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    content = f"turn {timemstamp}\n"
+    content = f"turn {timestamp}\n"
     content += f"User: {prompt}\n"
     content += f"Gemini: {response.strip()}"
     if not md_path.exists():
         header = "Gemini CLI Conversation\n"
-        header += "You are Gemili CLI a expert coding agent\n"
         md_path.write_text(header, "utf-8")
         print ("created new gemini md file")
     else:
