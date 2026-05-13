@@ -12,7 +12,7 @@ LOG_FILE = f"{PROJECT_FOLDER}-log.log"
 USER_PROMPT = "apply the design pattern discussed earlier"
 GEMINI_MD = "GEMINI.md"
 
-def run_command(cmd, shell=True, check=True, cwd=True):
+def run_command(cmd, shell=True, check=True, cwd=None):
     print(f"Running: {cmd}")
     subprocess.run(cmd, shell=shell, check=check, cwd=cwd, capture_output=True, text=True)
     if result.stdout.strip():
