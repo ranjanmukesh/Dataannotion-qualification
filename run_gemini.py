@@ -94,6 +94,7 @@ try:
         response = log_content[-3000:]
 
     append_to_gemini_md(USER_PROMPT, response)
+    commit_gemini_md()
 except Exception as e:
     print(f"Error reading log file {e}")
 print ("Process completed .......")
