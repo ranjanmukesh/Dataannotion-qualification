@@ -37,9 +37,11 @@ def commit_gemini_md():
         return
 
     try:
+        run_command(f"cd {PROJECT_FOLDER} && ls")
+        run_command("ls")
         run_command(f"cd {PROJECT_FOLDER} && git add {GEMINI_MD}")
         commit_message = "appending latest conversation"
-        run_command(f"cd {PROJECT_FOLDER} && git commit -m {commit_message}")
+        run_command(f"cd {PROJECT_FOLDER} && git commit -m '{commit_message}'")
         run_command(f"cd {PROJECT_FOLDER} && git push")
         print("committed successfully")
     except Exception as e:
