@@ -46,7 +46,6 @@ def commit_gemini_md():
         run_command("ls", cwd=cwd, check=False)
         run_command("git config user.name 'Github Actions'", cwd=cwd, check=False)
         run_command("git config user.email 'actions@github.com'", cwd=cwd, check=False)
-        run_command(f"git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git", cwd=cwd, check=False)
         run_command(f"git add {GEMINI_MD}", cwd=cwd, check=False)
         commit_message = "appending latest conversation"
         run_command(f"git commit -m '{commit_message}'", cwd=cwd, check=False)
