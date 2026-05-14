@@ -90,7 +90,7 @@ try:
     log_content = Path(LOG_FILE).read_text(encoding="utf-8", errors="ignore")
 
     if "Gemini" in log_content or ">" in log_content:
-        parts = log_split(USER_PROMPT)
+        parts = log_content.split(USER_PROMPT)
         if len(parts) > 1:
             response = parts[-1].strip()
         else:
