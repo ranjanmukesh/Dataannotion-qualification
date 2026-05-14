@@ -44,8 +44,8 @@ jobs:
           cp -r my-qual-project my-qual-project-start
           cd my-qual-project-start
           git config --global  user.name "Github Actions"
-          git config --global user.email "GithubActions@github.com"
-          git config --global url."https://${{.GITHUB_TOKEN }}@github.com/".insteadOf https://github.com/
+          git config --global user.email "actions@github.com"
+          git config --global url."https://${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf https://github.com/
           cd ..
           tar -cf my-qual-project-start.tar my-qual-project-start
           echo "======================="
