@@ -36,6 +36,8 @@ jobs:
         env:
           GEMINI_CLI_TRUST_WORKSPACE: true
           GEMINI_MODEL: gemini-3-pro-preview
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKRN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           npm install -g @google/gemini-cli
           export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
