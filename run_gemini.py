@@ -44,13 +44,6 @@ def commit_gemini_md():
         cwd = Path(PROJECT_FOLDER)
         run_command(f"cd {PROJECT_FOLDER} && ls", cwd=cwd, check=False)
         run_command("ls", cwd=cwd, check=False)
-        run_command("git config user.name 'Github Actions'", cwd=cwd, check=False)
-        run_command("git config user.email 'actions@github.com'", cwd=cwd, check=False)
-        run_command(f"git add {GEMINI_MD}", cwd=cwd, check=False)
-        commit_message = "appending latest conversation"
-        run_command(f"git commit -m '{commit_message}'", cwd=cwd, check=False)
-        run_command(f"git push", cwd=cwd, check=False)
-        print("committed successfully")
     except Exception as e:
         print(f"git commit/push failed {e}")
 print("=== Starting Gemini Qualification Setup ===")
@@ -98,7 +91,6 @@ try:
         response = log_content[-3000:]
 
     append_to_gemini_md(USER_PROMPT, response)
-    commit_gemini_md()
 except Exception as e:
     print(f"Error reading log file {e}")
 print ("Process completed .......")
