@@ -36,10 +36,10 @@ jobs:
         env:
           GEMINI_CLI_TRUST_WORKSPACE: true
           GEMINI_MODEL: gemini-3-pro-preview
+          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini
         run: |
           npm install -g @google/gemini-cli
-          export GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
-          export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini
           git clone https://github.com/mmumshad/simple-webapp-flask.git my-qual-project
           cp -r my-qual-project my-qual-project-start
           tar -cf my-qual-project-start.tar my-qual-project-start
