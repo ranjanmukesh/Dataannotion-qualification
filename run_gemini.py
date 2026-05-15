@@ -34,18 +34,6 @@ def append_to_gemini_md(prompt: str, response: str):
     else:
         print("appending to existing gemini md file")
 
-def commit_gemini_md():
-    md_path = Path(PROJECT_FOLDER)/GEMINI_MD
-    if not md_path.exists():
-        print ("gemini md file not found skipping commit")
-        return
-
-    try:
-        cwd = Path(PROJECT_FOLDER)
-        run_command(f"cd {PROJECT_FOLDER} && ls", cwd=cwd, check=False)
-        run_command("ls", cwd=cwd, check=False)
-    except Exception as e:
-        print(f"git commit/push failed {e}")
 print("=== Starting Gemini Qualification Setup ===")
 
 # Kill any existing session
@@ -56,7 +44,7 @@ run_command(f"tmux new-session -d -s {SESSION_NAME}")
 
 # Set environment variables and run commands inside tmux
 commands = [
-    f"export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW",
+    f"export GEMINI_API_KEY=(os.getenv('GEMINI_API_KEY')",
     f"export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini",
     f"export GEMINI_CLI_TRUST_WORKSPACE=true",
     f"export TERM=xterm-256color",

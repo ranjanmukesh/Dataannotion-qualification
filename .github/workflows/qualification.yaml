@@ -38,7 +38,7 @@ jobs:
           GEMINI_MODEL: gemini-3-pro-preview
         run: |
           npm install -g @google/gemini-cli
-          export GEMINI_API_KEY=Q9A4AXWDH3V7K6GWMGWQ7TNW
+          export GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
           export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini
           git clone https://github.com/mmumshad/simple-webapp-flask.git my-qual-project
           cp -r my-qual-project my-qual-project-start
@@ -52,7 +52,6 @@ jobs:
           git add GEMINI.md
           git commit -m "CI: update metadata files [skip ci]" || echo "Nothing to commit"
           git push || echo "Push failed"
-          cd ..
           echo "==================="
           cat my-qual-project-start-log.log
           echo "==================="
