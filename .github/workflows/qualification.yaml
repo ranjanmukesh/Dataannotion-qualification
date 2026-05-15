@@ -49,14 +49,13 @@ jobs:
           python3 run_gemini.py
           sleep 70
           ls my-qual-project-start
+          cd my-qual-project-start
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
-          cd my-qual-project-start
           git add GEMINI.md
           git commit -m "CI: update metadata files [skip ci]" || echo "Nothing to commit"
           git push || echo "Push failed"
-
-
+          cd ..
           echo "==================="
           cat my-qual-project-start-log.log
           echo "==================="
