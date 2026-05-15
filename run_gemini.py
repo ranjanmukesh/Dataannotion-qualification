@@ -44,7 +44,7 @@ run_command(f"tmux new-session -d -s {SESSION_NAME}")
 
 # Set environment variables and run commands inside tmux
 commands = [
-    f"export GEMINI_API_KEY=(os.getenv('GEMINI_API_KEY')",
+    f"export GEMINI_API_KEY={os.getenv('GEMINI_API_KEY')}",
     f"export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini",
     f"export GEMINI_CLI_TRUST_WORKSPACE=true",
     f"export TERM=xterm-256color",
