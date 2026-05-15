@@ -35,6 +35,9 @@ def append_to_gemini_md(prompt: str, response: str):
         print("appending to existing gemini md file")
 
 print("=== Starting Gemini Qualification Setup ===")
+api_key = os.getenv('GEMINI_API_KEY')
+if not api_key:
+        raise ValueError("GEMINI_API_KEY environment variable is not set!")
 
 # Kill any existing session
 run_command(f"tmux kill-session -t {SESSION_NAME} 2>/dev/null || true")
@@ -44,7 +47,7 @@ run_command(f"tmux new-session -d -s {SESSION_NAME}")
 
 # Set environment variables and run commands inside tmux
 commands = [
-    f"export GEMINI_API_KEY={os.getenv('GEMINI_API_KEY')}",
+    f"export GEMINI_API_KEY={api_key}",
     f"export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini",
     f"export GEMINI_CLI_TRUST_WORKSPACE=true",
     f"export TERM=xterm-256color",
