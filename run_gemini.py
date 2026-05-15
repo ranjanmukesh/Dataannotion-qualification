@@ -46,6 +46,18 @@ def commit_gemini_md():
         run_command("ls", cwd=cwd, check=False)
         run_command("git config user.name 'Github Actions'", cwd=cwd, check=False)
         run_command("git config user.email 'actions@github.com'", cwd=cwd, check=False)
+       	token = os.getenv("GITHUB_TOKEN")
+        if token:
+			helper_cmd = (
+                'git config --global credential.helper '
+                "'!f() { sleep 1; echo \"username=x-access-token\"; echo \"password=$GITHUB_TOKEN\"; }; f'"
+            )
+            run_command(helper_cmd, cwd=cwd)
+            
+            run_command(
+                f'git config --global url."https://{token}@github.com/".insteadOf https://github.com/', 
+                cwd=cwd
+            ) 
         run_command(f"git add {GEMINI_MD}", cwd=cwd, check=False)
         commit_message = "appending latest conversation"
         run_command(f"git commit -m '{commit_message}'", cwd=cwd, check=False)
