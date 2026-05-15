@@ -42,14 +42,11 @@ jobs:
           export GOOGLE_GEMINI_BASE_URL=https://app.dataannotation.tech/api/llm_proxy/gemini
           git clone https://github.com/mmumshad/simple-webapp-flask.git my-qual-project
           cp -r my-qual-project my-qual-project-start
-          cd my-qual-project-start
-          cd ..
           tar -cf my-qual-project-start.tar my-qual-project-start
           echo "======================="
           python3 run_gemini.py
           sleep 70
-          ls my-qual-project-start
-          cd my-qual-project-start
+          ls 
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
           git add GEMINI.md

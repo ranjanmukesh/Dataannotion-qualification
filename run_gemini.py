@@ -21,7 +21,7 @@ def run_command(cmd, shell=True, check=True, cwd=None):
         print("STDERR:",result.stderr.strip())
 
 def append_to_gemini_md(prompt: str, response: str):
-    md_path = Path(PROJECT_FOLDER)/GEMINI_MD
+    md_path = Path(GEMINI_MD)
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     content = f"turn {timestamp}\n"
