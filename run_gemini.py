@@ -63,13 +63,10 @@ commands = [
 
 for cmd in commands:
     run_command(f'tmux send-keys -t {SESSION_NAME} "{cmd}" Enter')
-    time.sleep(2)
+    time.sleep(10)
 
 # Wait for Gemini to load
-time.sleep(8)
-
-
-time.sleep(70)   # Adjust if needed (Gemini can be slow)
+time.sleep(120)   # Adjust if needed (Gemini can be slow)
 
 # Capture the full conversation
 run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}', check=False)
