@@ -9,7 +9,7 @@ from datetime import datetime
 SESSION_NAME = "qual_session"
 PROJECT_FOLDER = "my-qual-project-start"
 LOG_FILE = f"{PROJECT_FOLDER}-log.log"
-USER_PROMPT = "apply the design pattern discussed earlier"
+USER_PROMPT = "apply the design pattern discussed earlier. Start your response with 'GEMINI:'"
 GEMINI_MD = "GEMINI.md"
 
 def run_command(cmd, shell=True, check=True, cwd=None):
