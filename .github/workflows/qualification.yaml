@@ -8,7 +8,12 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
-      
+    env:
+      GEMINI_CLI_TRUST_WORKSPACE: true
+      GEMINI_MODEL: gemini-3-pro-preview
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GOOGLE_GEMINI_BASE_URL: https://app.dataannotation.tech/api/llm_proxy/gemini
+  
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -33,16 +38,16 @@ jobs:
           node-version: '20'
 
       - name: install gemini
-        env:
-          GEMINI_CLI_TRUST_WORKSPACE: true
-          GEMINI_MODEL: gemini-3-pro-preview
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GOOGLE_GEMINI_BASE_URL: https://app.dataannotation.tech/api/llm_proxy/gemini
         run: |
           npm install -g @google/gemini-cli
           git clone https://github.com/mmumshad/simple-webapp-flask.git my-qual-project
           cp -r my-qual-project my-qual-project-start
           tar -cf my-qual-project-start.tar my-qual-project-start
+          if [ -n "$GEMINI_API_KEY" ]; then
+            echo "last 4 characters : ${GEMINI_API_KEY:-4}"
+          else
+            echo "api key not set"
+          fi
           echo "======================="
           python3 run_gemini.py
           sleep 70
