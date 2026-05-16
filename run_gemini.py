@@ -33,6 +33,8 @@ def append_to_gemini_md(prompt: str, response: str):
         print ("created new gemini md file")
     else:
         print("appending to existing gemini md file")
+    with md_path.open("a", encoding = "utf-8") as f:
+        f.write(content)
 
 print("=== Starting Gemini Qualification Setup ===")
 api_key = os.getenv('GEMINI_API_KEY')
