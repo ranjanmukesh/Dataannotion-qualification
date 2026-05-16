@@ -9,7 +9,7 @@ from datetime import datetime
 SESSION_NAME = "qual_session"
 PROJECT_FOLDER = "my-qual-project-start"
 LOG_FILE = f"{PROJECT_FOLDER}-log.log"
-USER_PROMPT = Path("prompt.txt").read_text(encoding="utf-8").strip()+" Start your response with '<EOR>' and end it with '<EOR>'"
+USER_PROMPT = Path("prompt.txt").read_text(encoding="utf-8").strip()
 GEMINI_MD = "GEMINI.md"
 
 def run_command(cmd, shell=True, check=True, cwd=None):
@@ -58,7 +58,7 @@ commands = [
     "export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH",
     "which rg || echo 'rg not found in PATH'",
     "rg --version && echo '✅ ripgrep is working' || echo '❌ ripgrep still missing'",
-    f"gemini --approval-mode=auto_edit -p '{USER_PROMPT}'"
+    f"gemini --approval-mode=auto_edit -p '{USER_PROMPT} . Start your respinse with <EOR> and end with <EOR>'"
 ]
 
 for cmd in commands:
