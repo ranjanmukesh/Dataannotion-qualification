@@ -55,6 +55,9 @@ commands = [
     f"export TERM=xterm-256color",
     f"export COLORTERM=truecolor",
     f"cd {PROJECT_FOLDER}",
+    "export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH",
+    "which rg || echo 'rg not found in PATH'",
+    "rg --version && echo '✅ ripgrep is working' || echo '❌ ripgrep still missing'",
     f"gemini --approval-mode=auto_edit -p '{USER_PROMPT}'"
 ]
 
@@ -66,7 +69,7 @@ for cmd in commands:
 time.sleep(8)
 
 
-time.sleep(240)   # Adjust if needed (Gemini can be slow)
+time.sleep(70)   # Adjust if needed (Gemini can be slow)
 
 # Capture the full conversation
 run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}', check=False)
