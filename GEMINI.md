@@ -57,3 +57,18 @@ invoking the `gemini` CLI, and managing filesystem I/O.
 interface (providing inputs via `url.txt` and `prompt.txt`). It abstracts away
 the complex underlying mechanics of session management, environment variable inj
 ection, logging, and artifact generation.
+TURN 2026-05-17 12:37:52
+USER: On what design pattern this is based
+GEMINI: This system architecture is primarily based on the **Pipeline** (or Pipe
+s and Filters) and **Orchestrator** architectural patterns, while utilizing the
+**Facade** design pattern at the script level.
+
+1. **Pipeline Pattern:** The GitHub Actions workflow (`qualification.yaml`) defi
+nes a strict, sequential pipeline of operations (Setup -> Clone target repo -> E
+xecute AI task -> Parse output -> Commit/Archive).
+2. **Orchestrator Pattern:** The `run_gemini.py` script acts as a central coordi
+nator, orchestrating disparate tools and processes like detached `tmux` sessions
+, environment configuration, and the Gemini CLI itself.
+3. **Facade Pattern:** To the end user, the system presents a heavily simplified
+interface (via `url.txt` and `prompt.txt`), completely abstracting away the com
+plex underlying mechanics of session management and log extraction.
