@@ -76,7 +76,7 @@ try:
     log_content = Path(LOG_FILE).read_text(encoding="utf-8", errors="ignore")
     lines = log_content.splitlines()
     response_lines = []
-    for linr in lines:
+    for line in lines:
         stripped = line.strip()
         if not any(x in stripped for x in ["Ripgrep","STARTUP"]):
             response_lines.append(stripped)
