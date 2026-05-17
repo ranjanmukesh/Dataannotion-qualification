@@ -24,9 +24,9 @@ def append_to_gemini_md(prompt: str, response: str):
     md_path = Path(GEMINI_MD)
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    content = f"turn {timestamp}\n"
-    content += f"User: {prompt}\n"
-    content += f"Gemini: {response.strip()}"
+    content = f"TURN {timestamp}\n"
+    content += f"USER: {prompt}\n"
+    content += f"{response.strip()}"
     if not md_path.exists():
         header = "Gemini CLI Conversation\n"
         md_path.write_text(header, "utf-8")
@@ -74,12 +74,12 @@ run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}', ch
 
 try:
     log_content = Path(LOG_FILE).read_text(encoding="utf-8", errors="ignore")
-    log_content_part = log_content.split("GEMINI:",1)[1].strip()
+    log_content_part = log_content.split("GEMINI:",2)[1].strip()
     lines = log_content_part.splitlines()
     response_lines = []
     for line in lines:
         stripped = line.strip()
-        if not any(x in stripped for x in ["Ripgrep","STARTUP", "runner"]):
+        if not any(x in stripped for x in ["Ripgrep","STARTUP", "runner", "-start$"]):
             response_lines.append(stripped)
     if response_lines:
         full_response = "\n".join(response_lines)
