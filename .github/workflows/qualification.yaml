@@ -40,7 +40,7 @@ jobs:
       - name: install gemini
         run: |
           npm install -g @google/gemini-cli
-          REPO_URL=$(cat url.txt | tr -d '/n/r')
+          REPO_URL=$(cat url.txt | tr -d '\n\r')
           echo "REPO_URL=$REPO_URL" >> $GITHUB_ENV
           REPO_NAME=$(basename -s .git "$REPO_URL")
           echo $REPO_URL
