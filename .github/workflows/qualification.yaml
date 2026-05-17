@@ -43,6 +43,8 @@ jobs:
           REPO_URL=$(cat url.txt | tr -d '/n/r')
           echo "REPO_URL=$REPO_URL" >> $GITHUB_ENV
           REPO_NAME=$(basename -s .git "$REPO_URL")
+          echo $REPO_URL
+          echo $REPO_NAME
           git clone "$REPO_URL" "$REPO_NAME"
           cp -r "$(REPO_NAME)" "$(REPO_NAME)-start"
           tar -cf "$REPO_NAME-start.tar " "$REPO_NAME-start"
