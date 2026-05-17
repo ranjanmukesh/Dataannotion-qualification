@@ -74,7 +74,7 @@ run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}', ch
 
 try:
     log_content = Path(LOG_FILE).read_text(encoding="utf-8", errors="ignore")
-    log_content_part = log_content.split("GEMINI",1)[1].strip()
+    log_content_part = log_content.split("GEMINI:",1)[1].strip()
     lines = log_content_part.splitlines()
     response_lines = []
     for line in lines:
