@@ -7,7 +7,9 @@ from datetime import datetime
 
 # Configuration
 SESSION_NAME = "qual_session"
-PROJECT_FOLDER = "my-qual-project-start"
+repo_url = Path("url.txt").read_test(encoding="utf-8").strip()
+basename = os.path.basename(repo_url)
+PROJECT_FOLDER = basename+"-start"
 LOG_FILE = f"{PROJECT_FOLDER}-log.log"
 USER_PROMPT = Path("prompt.txt").read_text(encoding="utf-8").strip()
 GEMINI_MD = "GEMINI.md"
@@ -26,7 +28,7 @@ def append_to_gemini_md(prompt: str, response: str):
 
     content = f"TURN {timestamp}\n"
     content += f"USER: {prompt}\n"
-    content += f"GEMINI: {response.strip()}\n\n"
+    content += f"GEMINI: {response.strip()}\n"
     if not md_path.exists():
         header = "Gemini CLI Conversation\n"
         md_path.write_text(header, "utf-8")
