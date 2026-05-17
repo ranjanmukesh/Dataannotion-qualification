@@ -78,7 +78,7 @@ try:
     response_lines = []
     for line in lines:
         stripped = line.strip()
-        if not any(x in stripped for x in ["Ripgrep","STARTUP"]):
+        if not any(x in stripped for x in ["Ripgrep","STARTUP", "runner"]):
             response_lines.append(stripped)
     if response_lines:
         full_response = "\n".join(response_lines)
