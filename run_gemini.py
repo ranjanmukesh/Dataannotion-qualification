@@ -7,7 +7,7 @@ from datetime import datetime
 
 # Configuration
 SESSION_NAME = "qual_session"
-repo_url = Path("url.txt").read_test(encoding="utf-8").strip()
+repo_url = Path("url.txt").read_text(encoding="utf-8").strip()
 basename = os.path.basename(repo_url)
 PROJECT_FOLDER = basename+"-start"
 LOG_FILE = f"{PROJECT_FOLDER}-log.log"
