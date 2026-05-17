@@ -26,7 +26,7 @@ def append_to_gemini_md(prompt: str, response: str):
 
     content = f"TURN {timestamp}\n"
     content += f"USER: {prompt}\n"
-    content += f"{response.strip()}"
+    content += f"GEMINI: {response.strip()}\n"
     if not md_path.exists():
         header = "Gemini CLI Conversation\n"
         md_path.write_text(header, "utf-8")
