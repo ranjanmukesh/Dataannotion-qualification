@@ -59,7 +59,7 @@ commands = [
     "which rg || echo 'rg not found in PATH'",
     "rg --version && echo '✅ ripgrep is working' || echo '❌ ripgrep still missing'",
     "echo '**********************'",
-    f"gemini --approval-mode=auto_edit -p '{USER_PROMPT}'"
+    f"gemini --approval-mode=auto_edit -p '{USER_PROMPT}. Start your response with GEMINI:'"
 ]
 
 for cmd in commands:
@@ -74,17 +74,19 @@ run_command(f'tmux capture-pane -S -10000 -p -t {SESSION_NAME} > {LOG_FILE}', ch
 
 try:
     log_content = Path(LOG_FILE).read_text(encoding="utf-8", errors="ignore")
-
-    if "Gemini" in log_content or ">" in log_content:
-        parts = log_content.split(USER_PROMPT)
-        if len(parts) > 1:
-            response = parts[-1].strip()
-        else:
-            response = log_content[-4000:]
+    lines = log_content.splitlines()
+    response_lines = []
+    for linr in lines:
+        stripped = line.strip()
+        if not any(x in stripped for x in ["Ripgrep]\","STARTUP"]):
+            response_lines.append(stripped)
+    if response_lines:
+        full_response = "\n".join(response_lines)
     else:
-        response = log_content[-3000:]
+        full_response = ""
 
-    append_to_gemini_md(USER_PROMPT, response)
+
+    append_to_gemini_md(USER_PROMPT, full_response)
 except Exception as e:
     print(f"Error reading log file {e}")
 print ("Process completed .......")
