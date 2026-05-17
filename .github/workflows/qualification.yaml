@@ -40,9 +40,12 @@ jobs:
       - name: install gemini
         run: |
           npm install -g @google/gemini-cli
-          git clone https://github.com/mmumshad/simple-webapp-flask.git my-qual-project
-          cp -r my-qual-project my-qual-project-start
-          tar -cf my-qual-project-start.tar my-qual-project-start
+          REPO_URL=$(cat url.txt | tr -d '/n/r')
+          echo "REPO_URL=$REPO_URL" >> $GITHUB_ENV
+          REPO_NAME=$(basename -s .git "$REPO_URL")
+          git clone "$REPO_URL" "$REPO_NAME"
+          cp -r "$(REPO_NAME)" "$(REPO_NAME)-start"
+          tar -cf "$REPO_NAME-start.tar " "$REPO_NAME-start"
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "last 4 characters : ${GEMINI_API_KEY:-4}"
           else
@@ -58,21 +61,21 @@ jobs:
           git commit -m "CI: update metadata files [skip ci]" || echo "Nothing to commit"
           git push || echo "Push failed"
           echo "==================="
-          cat my-qual-project-start-log.log
+          cat "$REPO_NAME-start-log.log"
           echo "==================="
           echo "=== Active tmux sessions ==="
           tmux ls
 
       - name: prepare final artifacts
         run: |
-          tar -czf my-qual-project-start-final.tar.gz my-qual-project-start
+          tar -czf "$REPO_NAME-start-final.tar.gz" "$REPO_NAME-start"
       - name: uploading artifacts
         uses: actions/upload-artifact@v4
         with:
           name: qualifucation_results
           path: |
-            my-qual-project-start-log.log
-            my-qual-project-start.ta
-            my-qual-project-start-final.tar.gz
-            my-qual-project-start/
+            "$REPO_NAME-start-log.log"
+            "$REPO_NAME-start.tar"
+            "$REPO_NAME-start-final.tar.gz"
+            "$REPO_NAME-start/"
           retention-days: 30
