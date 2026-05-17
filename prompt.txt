@@ -1,1 +1,1 @@
-Can you tell me how this repo will be used by users
+There is also github action yaml file present what is its role
