@@ -58,6 +58,7 @@ commands = [
     "export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH",
     "which rg || echo 'rg not found in PATH'",
     "rg --version && echo '✅ ripgrep is working' || echo '❌ ripgrep still missing'",
+    "echo '**********************'",
     f"gemini --approval-mode=auto_edit -p '{USER_PROMPT} . Start your respinse with <EOR> and end with <EOR>'"
 ]
 
