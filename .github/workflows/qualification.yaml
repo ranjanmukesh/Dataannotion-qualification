@@ -77,8 +77,8 @@ jobs:
         with:
           name: qualifucation_results
           path: |
-            "${REPO_NAME}-start-log.log"
-            "${REPO_NAME}-start.tar"
-            "${REPO_NAME}-start-final.tar.gz"
-            "${REPO_NAME}-start/"
+            "${{ env.REPO_NAME }}-start-log.log"
+            "${{ env.REPO_NAME }}-start.tar"
+            "${{ env.REPO_NAME }}-start-final.tar.gz"
+            "${{ env.REPO_NAME }}-start/"
           retention-days: 30

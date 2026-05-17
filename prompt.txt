@@ -1,1 +1,1 @@
-make the app userr friendly
+Can you tell me how this repo will be used by users
