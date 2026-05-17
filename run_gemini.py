@@ -9,7 +9,7 @@ from datetime import datetime
 SESSION_NAME = "qual_session"
 repo_url = Path("url.txt").read_text(encoding="utf-8").strip()
 basename = os.path.basename(repo_url)
-PROJECT_FOLDER = basename+"-start"
+PROJECT_FOLDER = basename[:-4]+"-start"
 LOG_FILE = f"{PROJECT_FOLDER}-log.log"
 USER_PROMPT = Path("prompt.txt").read_text(encoding="utf-8").strip()
 GEMINI_MD = "GEMINI.md"
